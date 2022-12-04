@@ -1,16 +1,31 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import { FeedbackList, FeedbackBtn } from './Feedback.styled';
 
-export const Feedback = () => {
+const FeedbaFeedbackOptions = ({options, onLeaveFeedback}) => {    
     return (
         <div>
-            <h1>Please leave feedback</h1>
-            <ul>                    
-                <button>Good</button>
-                <button>Neutral</button>
-                <button>Bad</button>
-            </ul>
+            <FeedbackList>
+            {options.map(item => {
+                return (
+                        <FeedbackBtn
+                            key={item}
+                            type="button"
+                            onClick={() => {onLeaveFeedback(item)}}
+                        >
+                            {item}
+                        </FeedbackBtn>
+                    );
+            })}
+            </FeedbackList>            
         </div>
     )
 }
 
-// export default FeedBack;
+FeedbaFeedbackOptions.prototype = {
+    // options: PropTypes.object.isRequired,
+    options: PropTypes.arrayOf(PropTypes.string,).isRequired,
+    onLeaveFeedback: PropTypes.func.isRequired
+}
+
+
+export default FeedbaFeedbackOptions;
