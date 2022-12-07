@@ -10,7 +10,8 @@ body {
   /* background-color: rgb(116, 188, 230); */
   background-image: url(../src/img/bg43.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
+  background-size: auto 1200px;
   letter-spacing: 0.09em;
 }
 
