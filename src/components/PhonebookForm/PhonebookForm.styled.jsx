@@ -7,7 +7,6 @@ export const FormTitle = styled.h1`
 export const PhonebookForm = styled.form`
     display: flex;
     flex-direction: column;
-
     width: 355px;
     padding: 20px;
     border: 1px solid black;

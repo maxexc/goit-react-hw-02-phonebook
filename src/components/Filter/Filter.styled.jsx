@@ -10,7 +10,7 @@ export const FilterTitle = styled.h2`
 export const Filterinput = styled.input`
     style: none;
     width: 275px;
-    height: 30px;
+    height: 28px;
     margin-bottom: 10px;
     padding: 4px;
     border: 0.3px solid rgb(78, 41, 20);
@@ -22,6 +22,5 @@ export const Filterinput = styled.input`
     transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
         &:focus, :hover {
         box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.4);
-}
-    
+}    
 `
