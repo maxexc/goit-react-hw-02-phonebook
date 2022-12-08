@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const ContactsBlock = styled.div`
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid darkcyan;    
     border-radius: 5px;
     background-color: rgb(100, 237, 207);
     color: darkblue;
@@ -16,8 +16,9 @@ export const ContactsTitle = styled.h2`
     text-align: center;
 `
 
-export const ContactList = styled.ul`
-    max-width: 420px;
+export const ContactList = styled.ul`   
+    max-width: 400px;
+    min-width: 340px;
     padding: 0;
     list-style: inside;
     font-size: 20px;
@@ -36,11 +37,11 @@ export const ContactItem = styled.li`
 `
 
 export const ContactBtn = styled.button`
-    margin-left: 30px;
+    margin-left: 20px;
     width: 100px;
     padding: 5px 10px;
-    background-color: rgb(28, 80, 165);
-    /* background-color: rgb(20, 89, 116); */
+    /* background-color: rgb(28, 80, 165); */
+    background-color: rgb(20, 89, 116);
     color: white;
     border: none;
     border-radius: 15px;

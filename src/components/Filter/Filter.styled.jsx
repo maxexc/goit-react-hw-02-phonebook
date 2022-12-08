@@ -9,7 +9,7 @@ export const FilterTitle = styled.h2`
 `
 export const Filterinput = styled.input`
     width: 275px;
-    height: 28px;
+    height: 22px;
     margin-bottom: 10px;
     padding: 4px;
     border: 0.3px solid rgb(78, 41, 20);
