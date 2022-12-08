@@ -42,7 +42,7 @@ class Phonebook extends Component {
 
     render() {
         return (
-        <PhonebookForm onSubmit={this.handleFormSubmit} style={{ display: 'flex', gap: '10px', flexDirection: 'column', width: '320px' }}>
+        <PhonebookForm onSubmit={this.handleFormSubmit} >
             <FormTitle>Phonebook</FormTitle>
                 <FormLabel htmlFor={this.nameInputId} >
                     Name {''}

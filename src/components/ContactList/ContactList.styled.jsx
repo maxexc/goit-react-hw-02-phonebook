@@ -50,6 +50,7 @@ export const ContactBtn = styled.button`
         box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
         background-color: rgb(253, 232, 212);
+        background-color: #fafafa;
         color: darkblue;
         box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.4);
     }  

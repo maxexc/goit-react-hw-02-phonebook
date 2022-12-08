@@ -8,7 +8,7 @@ export const PhonebookForm = styled.form`
     display: flex;
     flex-direction: column;
 
-    width: 500px;
+    width: 355px;
     padding: 20px;
     border: 1px solid black;
     border-radius: 5px;
