@@ -8,7 +8,6 @@ export const FilterTitle = styled.h2`
     text-align: center;
 `
 export const Filterinput = styled.input`
-    style: none;
     width: 275px;
     height: 28px;
     margin-bottom: 10px;
