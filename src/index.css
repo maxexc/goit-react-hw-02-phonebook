@@ -7,6 +7,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(160, 217, 250);
+  background-image: url(../src/img/innovation_background.jpg);
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+
 }
 
 code {

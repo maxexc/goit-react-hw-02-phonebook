@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import {
+    FormTitle,
+    PhonebookForm,
+    FormLabel,
+    FormInput,
+    FormBtn,
+} from './PhonebookForm.styled'
 
 class Phonebook extends Component {
     state = {
@@ -35,12 +42,12 @@ class Phonebook extends Component {
 
     render() {
         return (
-        <form onSubmit={this.handleFormSubmit} style={{ display: 'flex', gap: '10px', flexDirection: 'column', width: '320px' }}>
-            <h1>Phonebook</h1>
-                <label htmlFor={this.nameInputId} >
+        <PhonebookForm onSubmit={this.handleFormSubmit} style={{ display: 'flex', gap: '10px', flexDirection: 'column', width: '320px' }}>
+            <FormTitle>Phonebook</FormTitle>
+                <FormLabel htmlFor={this.nameInputId} >
                     Name {''}
-                </label>                
-                <input
+                </FormLabel>                
+                <FormInput
                     type="text"
                     name="name"
                     id={this.nameInputId}
@@ -50,13 +57,12 @@ class Phonebook extends Component {
                     required
                     value={this.state.name}
                     onChange={this.handleInputChange}
-                />       
-            
-                {/* <label htmlFor="name"> */}
-                <label htmlFor={this.numberInputId}>
+                />                
+                
+                <FormLabel htmlFor={this.numberInputId}>
                     Number {''}
-                </label>                
-                <input                
+                </FormLabel>                
+                <FormInput                
                     type="tel"
                     name="number"
                     id={this.numberInputId}
@@ -68,8 +74,8 @@ class Phonebook extends Component {
                     onChange={this.handleInputChange}
                 />
                         
-            <button type="submit">Add contact</button>
-        </form>
+            <FormBtn type="submit">Add contact</FormBtn>
+        </PhonebookForm>
     )}
 }
 

@@ -2,6 +2,7 @@ import { Contacts } from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
 import React, { Component } from 'react'
+import { Container } from './App.styled';
 
 class App extends Component {
   state = {
@@ -75,7 +76,7 @@ class App extends Component {
     console.log(this.state.contacts);
     
     return (
-      <>
+      <Container>
         <PhonebookForm onSubmit={this.formSubmitHandler} />
         <Filter
           value={this.state.filter}
@@ -84,7 +85,7 @@ class App extends Component {
           contactsFiltred={this.getVisibleContacts()}
           handleDelete={this.handleDelete}
         ></Contacts>
-      </>
+      </Container>
   )
 }
 }
