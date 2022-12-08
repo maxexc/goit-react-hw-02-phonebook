@@ -1,67 +1,93 @@
-import Notification from '../Notification/Notification.jsx'
-import Section from 'components/Section/Section.jsx';
-import Statistics from 'components/Statistics/Statistics.jsx';
-import React from 'react'
-import  FeedbackOptions  from '../Feedback/Feedback.jsx'
+import { Contacts } from 'components/ContactList/ContactList';
+import Filter from 'components/Filter/Filter';
+import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
+import React, { Component } from 'react'
+import { Container } from './App.styled';
 
-
-class App extends React.Component {
+class App extends Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+    contacts: [
+      {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
+      {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
+      {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+      {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
+    ],
+    filter: '',
+  }
 
-  ratingButtonClick = item => {
+  formSubmitHandler = event => {
+    const newContact = {
+      id: event.id,
+      name: event.name,
+      number: event.number,
+    };
+    // const id = event.id;
+    // const name = event.name;
+    // const number = event.number;
+    const contactsLists = [...this.state.contacts];
+    console.log(event);
+
+    if (
+      contactsLists.find(
+        contacts => newContact.name.toLowerCase() === contacts.name.toLowerCase()
+      )) {
+      alert(`${newContact.name} is already in contacts.`);
+      return;
+    }    
+   
+    this.setState(({ contacts }) => ({
+      contacts: [newContact, ...contacts],
+    }));    
+
+    // this.setState({contacts: [newContact, contactsLists]})
+    // contactsLists.push({ name, id, number });   
+
+    // this.setState({contacts: contactsLists})
+  }
+
+  
+  handleDelete = selectedId => {
     this.setState(prevState => ({
-      [item]: prevState[item] + 1,
-    })); 
-    console.log(item);
+      contacts: prevState.contacts.filter(contact => contact.id !== selectedId),
+    }));
   };
- 
-  // ratingButtonClick = () => {this.setState({
-  //   good: this.state.good + 33})};
 
-  countTotalFeedback = () => 
-  Object.values(this.state).reduce((acc, value) => acc + value);
+  changeFilter = event => {
+    this.setState({ filter: event.currentTarget.value });
+  };  
 
-  countPositiveFeedbackPercentage = () => 
-  Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  // getFilteredContacts = () => {
+  //   const normalizedFilter = this.state.filter.toLowerCase();
+  //   const filterContactsList = this.state.contacts.filter(contact => {
+  //     return contact.name.toLowerCase().includes(normalizedFilter);
+  //   });
+  //   return filterContactsList;
+  // };
+  
+  getVisibleContacts = () => {
+    const normalizedFilter = this.state.filter.toLowerCase();   
+
+    return this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter),
+    );
+  }
 
   render() {
-    const { good, neutral, bad } = this.state;
-    const positiveFeedback =this.countPositiveFeedbackPercentage();
-    const totalFeedback = this.countTotalFeedback();
-
+    console.log(this.state.contacts);
+    
     return (
-      <>
-        <Section title={"Please leave feedback"}>
-          <FeedbackOptions 
-            options={Object.keys(this.state)}
-            onLeaveFeedback={this.ratingButtonClick} 
-          />
-        </Section>
-
-        <Section title="Statistics:">
-          {totalFeedback ? ( 
-              <Statistics 
-                good={good}
-                neutral={neutral}
-                bad={bad}
-                total={this.countTotalFeedback()}
-                PositivePercentage=
-                {positiveFeedback ? positiveFeedback : 0 }
-              />           
-            ) : (    
-              <Notification  message="There is no one feedback" />      
-               )                          
-          }          
-        </Section>        
-      </>
-    )
-  } 
+      <Container>
+        <PhonebookForm onSubmit={this.formSubmitHandler} />
+        <Filter
+          value={this.state.filter}
+          onFilter={this.changeFilter} />
+        <Contacts
+          contactsFiltred={this.getVisibleContacts()}
+          handleDelete={this.handleDelete}
+        ></Contacts>
+      </Container>
+  )
+}
 }
 
-
 export default App
-

@@ -7,36 +7,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: rgb(116, 188, 230); */
-  background-image: url(../src/img/bg43.jpg);
-  background-repeat: no-repeat;
-  /* background-size: cover; */
-  background-size: auto 1200px;
-  letter-spacing: 0.09em;
+  background-color: rgb(160, 217, 250);
+  background-image: url(../src/img/innovation_background.jpg);
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
 }
