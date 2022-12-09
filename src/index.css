@@ -9,9 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(160, 217, 250);
   background-image: url(../src/img/fon-37.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: auto 1000;
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  background-size: auto;
+  background-position: center;
 }
 
 code {
